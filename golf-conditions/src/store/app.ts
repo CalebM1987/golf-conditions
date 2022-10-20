@@ -1,7 +1,7 @@
 import { GolfCourseFeature, ILngLat } from '@/types';
 import { ref, computed } from 'vue'
 
-export const baseUrl = ref('http://127.0.0.1:8000')
+export const baseUrl = ref(import.meta.env.PROD ? '/': 'http://127.0.0.1:8000')
 
 export const golfCourses = ref<GolfCourseFeature[]>([])
 
