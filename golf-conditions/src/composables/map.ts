@@ -1,12 +1,15 @@
-
+import { ref } from 'vue'
 import {  GolfCourseFeature } from '@/types/golf';
 import { Map, PointLike } from 'mapbox-gl'
 import { useGolfCourses } from './golf-courses';
 import { selectedIds, setWeatherLocation } from '@/store'
+import { log } from '@/utils'
+
+const didSetClickListener = ref(false)
 
 export function useMapboxMap(map: Map){
 
-  const { highlightPoints, clearHighlightedPoints } = useGolfCourses(map)
+  const { highlightPoints } = useGolfCourses(map)
 
   const addWeatherLayers = (layers: string[])=>{
     const CLIENT_ID = import.meta.env.VITE_AERIS_CLIENT_ID
@@ -25,7 +28,7 @@ export function useMapboxMap(map: Map){
     
   }
 
-  map.on('click', (e)=> {
+  const onClick = (e: any)=> {
     // Set `bbox` as 5px reactangle area around clicked point.
     const bbox = [
       [e.point.x - 5, e.point.y - 5],
@@ -47,9 +50,31 @@ export function useMapboxMap(map: Map){
     // to activate the 'counties-highlighted' layer.
     highlightPoints(ids);
     selectedIds.value = ids
-  })
+  }
+
+  const setMapClickListener = ()=> {
+    if (!didSetClickListener.value){
+      log('no map click listener set, adding now')
+      map.on('click', onClick)
+      didSetClickListener.value = true
+    }
+  }
+
+  const removeMapClickListener = ()=> {
+    if (didSetClickListener.value){
+      log('removing map click listener')
+      map.off('click', onClick)
+      didSetClickListener.value = false
+    }
+  }
+
+  setMapClickListener()
 
   return {
-    addWeatherLayers
+    map,
+    addWeatherLayers,
+    setMapClickListener,
+    removeMapClickListener,
+    didSetClickListener
   }
 }
