@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { Map } from 'mapbox-gl'
 import { getGolfCourses } from '@/services';
 import { baseUrl, golfCourses } from '@/store';
+import { log } from '@/utils'
 
 const didAddLayers = ref(false)
 
@@ -12,7 +13,7 @@ export function useGolfCourses(map: Map){
 
     const { data } = await getGolfCourses({f: 'geojson'})
 
-    console.log(`loaded ${data.features?.length ?? 0} golf courses`)
+    log(`loaded ${data.features?.length ?? 0} golf courses`)
 
     //@ts-ignore
     golfCourses.value = data.features ?? [] as unknown as GolfCourseFeature[]
