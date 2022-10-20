@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 class LatLng(BaseModel):
     lat: float
@@ -63,10 +63,42 @@ class Period(BaseModel):
     windSpeed: WindSpeed
     weather: Weather
 
+class Profile(BaseModel):
+    tz: str
+
+class IndexRange(BaseModel):
+    min: int
+    max: int
+    reverse: bool
+
+class RatingIndex(BaseModel):
+    timestamp: int
+    dateTimeISO: str
+    index: int
+    indexENG: str
+
+class Indice(BaseModel):
+    type: str
+    range: IndexRange
+    past: Optional[RatingIndex]
+    current: RatingIndex
+
+
+class ResponseObject(BaseModel):
+    loc: LatLng
+    place: Place
+    profile: Profile
+    indice: Indice
+
 class RatingResponse(BaseModel):
-    scores: RatingScores
-    rating: int
+    success: bool
+    error: Optional[str]
+    response: List[ResponseObject]
+
+class ReverseIndexes(BaseModel):
+    reverse: Optional[bool]=False
+
+class WeatherConditionsResponse(BaseModel):
     loc: LatLng
     place: Place
     periods: List[Period]
-
