@@ -59,7 +59,7 @@ const temp = computed(()=> conditions.value?.periods[0]?.temp ?? undefined)
     <q-card-section v-if="conditions && !isLoading">
       <q-card-section>
         <div class="text-subtitle2">
-          <q-icon name="thermometer" color="negative" size="1.25rem" />
+          <!-- <q-icon name="thermometer" color="negative" size="1.25rem" /> -->
           <p><span style="font-size: 1.3rem;">{{ Math.round(temp?.avgF ?? 0) }}</span>°F</p>
           <p>{{ weather?.phrase ?? 'N/A' }}</p>
         </div>
