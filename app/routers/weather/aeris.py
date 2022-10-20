@@ -64,15 +64,15 @@ def get_temp_rating(t: float, ideal=75) -> float:
     return norm if t < ideal else 1 - norm
 
 def get_wind_rating(w: float, temp: float, ideal=5) -> float:
-    """get the wind rating
+    """gets the wind rating
 
     Args:
-        w (float): _description_
-        temp (float): _description_
-        ideal (int, optional): _description_. Defaults to 5.
+        s (float): wind value to check (in MPH)
+        temp (float): the avg temp (in F)
+        ideal (float): the ideal wind (in MPH)
 
     Returns:
-        _type_: _description_
+        float: the rating on a 0-1 scale
     """
     if w < 5 and temp >= 85:
         # no wind is not quite ideal, still want a breeze
@@ -84,6 +84,14 @@ def get_wind_rating(w: float, temp: float, ideal=5) -> float:
     return min(abs(1 - normalize(w, low, high)), 1)
 
 def get_precip_rating(p: float) -> float:
+    """gets the precipitation rating, dryer is better
+
+    Args:
+        p (float): precipitation value to check (in MM)
+
+    Returns:
+        float: the rating on a 0-1 scale
+    """
     if p == 0:
         return 1.0
     elif p >= 4:
@@ -91,6 +99,15 @@ def get_precip_rating(p: float) -> float:
     return 1 - normalize(p, 0, 4)
 
 def get_dew_rating(d: float, temp: float) -> float:
+    """gets the dew rating
+
+    Args:
+        d (float): dew point value to check (in F)
+        temp (float): the avg temp (in F)
+
+    Returns:
+        float: the rating on a 0-1 scale
+    """
     if temp >= 85 and d >= 60:
         # this is getting muggy, no thanks
         return 0.0
@@ -166,10 +183,3 @@ async def get_golf_conditions(location: str) -> RatingResponse:
         rating=rating,
         **conditions
     )
-
-
-
-
-
-    
-
