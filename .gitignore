@@ -1,7 +1,10 @@
 .env
+.env.production
 
 *-mn.json
 
 node_modules/
 
 __pycache__/
+
+static/

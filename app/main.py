@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+import os
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from app.utils import customize_openapi
 from app.routers import golf, weather
@@ -35,3 +37,9 @@ def custom_openapi():
 
 app.openapi = custom_openapi
 
+# mount static directory to serve built app
+staticDir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'static')
+app.mount('/app', StaticFiles(directory=staticDir, html=True), name="static")
+
+# @app.get('/')
+# def serve_app(request: Request)
