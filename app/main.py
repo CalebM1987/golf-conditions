@@ -40,6 +40,3 @@ app.openapi = custom_openapi
 # mount static directory to serve built app
 staticDir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'static')
 app.mount('/app', StaticFiles(directory=staticDir, html=True), name="static")
-
-# @app.get('/')
-# def serve_app(request: Request)
