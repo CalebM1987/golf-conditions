@@ -1,14 +1,17 @@
 <script lang="ts" setup>
 import { MapboxMap } from 'vue-mapbox-ts'
 import { Map } from 'mapbox-gl'
-import { useGolfCourses } from '@/composables'
+import { useGolfCourses, useMapboxMap } from '@/composables'
 
 const accessToken = import.meta.env.VITE_MAPBOX_TOKEN as string
 
 const onLoad = (map: Map) => {
   console.log('map loaded?', map)
   useGolfCourses(map)
-
+  setTimeout(()=> {
+    const { addWeatherLayers } = useMapboxMap(map)
+    addWeatherLayers(['radar'])
+  }, 1000)
 }
 
 </script>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import Sidebar from '@/views/Sidebar.vue'
+
 const leftDrawerOpen = ref(true)
 
 const toggleLeftDrawer = ()=> {
@@ -25,7 +27,7 @@ const toggleLeftDrawer = ()=> {
     </q-header>
 
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-      <!-- drawer content -->
+      <sidebar />
     </q-drawer>
 
     <q-page-container>
