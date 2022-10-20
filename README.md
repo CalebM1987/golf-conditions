@@ -81,3 +81,16 @@ VITE_APP_PUBLIC_PATH=..
 ```
 
 This app was build with Vue.js, TypeScript, Vite and [vue-mapbox-ts](https://gitlab.com/relief-melone/vue-mapbox-ts).
+
+#### backend tests
+
+test the ratings:
+
+```sh
+python -m unittest app/test/test_aeris.py
+```
+
+test the conditions (mock):
+```sh
+python -m pytest app/test/test_mocks.py
+```
