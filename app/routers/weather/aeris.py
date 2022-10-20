@@ -6,6 +6,8 @@ from munch import munchify
 from dotenv import dotenv_values
 from .models import RatingResponse
 from .ratings import *
+from app.utils import get_timestamp, from_milliseconds
+import datetime
 
 dotfile = os.path.join(os.path.abspath(os.path.dirname(__file__)), '.env')
 aries_env = dotenv_values(dotfile)
@@ -83,6 +85,9 @@ async def get_golf_conditions(location: str, reverse=False) -> RatingResponse:
     rating = None
     _min, _max = 1, 5
     indexNames = RATINGS
+    period = None
+    conditions = {}
+    keep = ['loc', 'place', 'profile']
     if reverse:
         _min, _max = 5, 1
         indexNames = RATINGS_REVERSED
@@ -103,8 +108,6 @@ async def get_golf_conditions(location: str, reverse=False) -> RatingResponse:
         precip = get_precip_rating(precipMM) * 30
         dew = get_dew_rating(dewF, tempF) * 15
 
-        keep = ['loc', 'place', 'profile']
-
         # get rank
         rating = min(5, round(sum([temp, wind, precip, dew]) / 20)) 
         if reverse:
@@ -112,9 +115,14 @@ async def get_golf_conditions(location: str, reverse=False) -> RatingResponse:
             
     except Exception as e:
         error = str(e)
+        ts = get_timestamp()
+        period = munchify(dict(
+            timestamp=ts,
+            dateTimeISO=from_milliseconds(ts)
+        ))
     
     # return rating and other info
-    return dict(
+    return munchify(dict(
         success=error == None,
         error=error,
         response=[
@@ -128,9 +136,9 @@ async def get_golf_conditions(location: str, reverse=False) -> RatingResponse:
                     ),
                     past=None,
                     current=dict(
+                        index=rating,
                         timestamp=period.timestamp,
                         dateTimeISO=period.dateTimeISO,
-                        index=rating,
                         indexENG=indexNames.get(rating)
                     ),
                 ),
@@ -138,4 +146,4 @@ async def get_golf_conditions(location: str, reverse=False) -> RatingResponse:
                 **{k:v for k,v in conditions.items() if k in keep}
             ),
         ]
-    )
+    ))

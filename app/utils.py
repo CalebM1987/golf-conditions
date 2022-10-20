@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from typing import List, TypeVar, Generic, Optional
 from fastapi.openapi.utils import get_openapi
 from pydantic import BaseModel
+import datetime
 
 T = TypeVar('T')
 
@@ -69,3 +70,12 @@ def to_geojson(data: List[T]) -> GeoJSONFeatureCollection[T]:
             ) for ft in data
         ]
     )
+
+def get_timestamp() -> int:
+    """return current time in milliseconds"""
+    date = datetime.datetime.utcnow() - datetime.datetime(1970, 1, 1)
+    return round(date.total_seconds() * 1000)
+
+def from_milliseconds(ts: int) -> str:
+    dt = datetime.datetime.fromtimestamp(ts / 1000.0, tz=datetime.timezone.utc)
+    return dt.isoformat()
