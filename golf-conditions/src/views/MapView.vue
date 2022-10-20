@@ -1,23 +1,35 @@
 <script lang="ts" setup>
-import { MapboxMap } from 'vue-mapbox-ts'
+import { ref } from 'vue'
 import { Map } from 'mapbox-gl'
+import { MapboxMap } from 'vue-mapbox-ts'
 import { useGolfCourses, useMapboxMap } from '@/composables'
-import { setWeatherLocation } from '@/store';
+import { setWeatherLocation, selectedIds } from '@/store';
+import { log } from '@/utils'
 
 const accessToken = import.meta.env.VITE_MAPBOX_TOKEN as string
 
+const mapHandle = ref<Map | null>(null);
+
 const onLoad = (map: Map) => {
-  console.log('map loaded?', map)
+  mapHandle.value = map
+  log('map loaded?', map)
   useGolfCourses(map)
   setTimeout(()=> {
     const { addWeatherLayers } = useMapboxMap(map)
     addWeatherLayers(['radar'])
+    
   }, 1000)
 }
 
 const handleResult = (result: any) => {
-  setWeatherLocation(...result.center as [number, number])
+  if (mapHandle.value){
+    const { clearHighlightedPoints } = useGolfCourses(mapHandle.value)
+    setWeatherLocation(...result.center as [number, number])
+    selectedIds.value = []
+  }
+  
 }
+
 
 </script>
 
