@@ -51,6 +51,7 @@ async def get_current_conditions(location: str, **kwargs):
         _type_: _description_
     """
     kwargs['fields']= ','.join(weather_fields)
+
     url = f'{base}/conditions/summary/{location}?{get_args(**kwargs)}'
     
     async with httpx.AsyncClient() as client:
