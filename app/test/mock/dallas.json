@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "error": null,
+  "response": [
+    {
+      "loc": {
+        "lat": 32.78306,
+        "long": -96.80667
+      },
+      "place": {
+        "name": "dallas",
+        "state": "tx",
+        "country": "us"
+      },
+      "profile": {
+        "tz": "America/Chicago"
+      },
+      "indice": {
+        "type": "golf",
+        "range": {
+          "min": 1,
+          "max": 5,
+          "reverse": false
+        },
+        "past": null,
+        "current": {
+          "timestamp": 1666242000,
+          "dateTimeISO": "2022-10-20T00:00:00-05:00",
+          "index": 5,
+          "indexENG": "excellent"
+        }
+      }
+    }
+  ]
+}
