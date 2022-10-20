@@ -10,6 +10,7 @@ export interface GolfCourseFeatureCollection extends FeatureCollection {
 type PointFeature = components['schemas']['PointFeature']
 
 export type RatingResponse = components['schemas']['RatingResponse']
+export type WeatherResponse = components['schemas']['WeatherConditionsResponse']
 
 export interface GolfCourseFeature extends PointFeature {
   properties: GolfCourse;

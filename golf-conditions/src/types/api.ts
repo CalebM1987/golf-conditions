@@ -85,6 +85,17 @@ export interface components {
       /** Long */
       long: number;
     };
+    /** Period */
+    Period: {
+      /** Timestamp */
+      timestamp: number;
+      range: components["schemas"]["TimeRange"];
+      precip: components["schemas"]["Precip"];
+      temp: components["schemas"]["TempLike"];
+      dewpoint: components["schemas"]["TempLike"];
+      windSpeed: components["schemas"]["WindSpeed"];
+      weather: components["schemas"]["Weather"];
+    };
     /** Place */
     Place: {
       /** Name */
@@ -108,6 +119,33 @@ export interface components {
       type: string;
       /** Coordinates */
       coordinates: number[];
+    };
+    /** Precip */
+    Precip: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Maxmm */
+      maxMM: number;
+      /** Minmm */
+      minMM: number;
+      /** Avgmm */
+      avgMM: number;
+      /** Totalmm */
+      totalMM: number;
+      /** Maxin */
+      maxIN: number;
+      /** Minin */
+      minIN: number;
+      /** Avgin */
+      avgIN: number;
+      /** Totalin */
+      totalIN: number;
     };
     /** Profile */
     Profile: {
@@ -141,6 +179,42 @@ export interface components {
       profile: components["schemas"]["Profile"];
       indice: components["schemas"]["Indice"];
     };
+    /** TempLike */
+    TempLike: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Maxc */
+      maxC: number;
+      /** Minc */
+      minC: number;
+      /** Avgc */
+      avgC: number;
+      /** Maxf */
+      maxF: number;
+      /** Minf */
+      minF: number;
+      /** Avgf */
+      avgF: number;
+    };
+    /** TimeRange */
+    TimeRange: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Count */
+      count: number;
+    };
     /** ValidationError */
     ValidationError: {
       /** Location */
@@ -149,6 +223,43 @@ export interface components {
       msg: string;
       /** Error Type */
       type: string;
+    };
+    /** Weather */
+    Weather: {
+      /** Phrase */
+      phrase: string;
+      /** Primary */
+      primary: string;
+    };
+    /** WeatherConditionsResponse */
+    WeatherConditionsResponse: {
+      loc: components["schemas"]["LatLng"];
+      place: components["schemas"]["Place"];
+      /** Periods */
+      periods: components["schemas"]["Period"][];
+    };
+    /** WindSpeed */
+    WindSpeed: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Maxkts */
+      maxKTS: number;
+      /** Minkts */
+      minKTS: number;
+      /** Avgkts */
+      avgKTS: number;
+      /** Maxkph */
+      maxKPH: number;
+      /** Minkph */
+      minKPH: number;
+      /** Avgkph */
+      avgKPH: number;
     };
   };
 }
@@ -223,7 +334,7 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          "application/json": components["schemas"]["WeatherConditionsResponse"];
         };
       };
       /** Validation Error */

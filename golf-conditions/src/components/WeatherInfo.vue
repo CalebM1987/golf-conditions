@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import { computed, reactive,ref,  watch } from 'vue'
-import { getGolfConditions } from '@/services'
+import { getGolfConditions, getCurrentWeatherConditions } from '@/services'
 import { weatherLocation } from '@/store'
-import { ILngLat, RatingResponse } from '@/types'
+import { ILngLat, RatingResponse, WeatherResponse } from '@/types'
 
 const isLoading = ref(true)
 
 const conditions = ref<RatingResponse | undefined>()
+const weather = ref<WeatherResponse | undefined>()
 
 interface Props {
   latLng: ILngLat;
@@ -18,8 +19,11 @@ watch(()=> [props.latLng], async ([loc])=> {
   if (loc?.lat){
     try {
       isLoading.value = true
-      const { data } = await getGolfConditions({ loc: `${loc.lat},${loc.lng}`})
+      const location = `${loc.lat},${loc.lng}`
+      const { data } = await getGolfConditions({ loc: location})
+      const { data: weatherData } = await getCurrentWeatherConditions({ loc: location })
       conditions.value = data
+      weather.value = weatherData
     } catch(err){
       console.warn('failed to fetch golf conditions: ', err)
     } finally {
@@ -33,8 +37,11 @@ if (props.latLng.lat){
     
   try {
       isLoading.value = true
-      const { data } = await getGolfConditions({ loc: `${weatherLocation.value!.lat},${weatherLocation.value!.lng}`})
+      const location = `${weatherLocation.value!.lat},${weatherLocation.value!.lng}`
+      const { data } = await getGolfConditions({ loc: location})
+      const { data: weatherData } = await getCurrentWeatherConditions({ loc: location })
       conditions.value = data
+      weather.value = weatherData
     } catch(err){
       console.warn('failed to fetch golf conditions: ', err)
     } finally {
@@ -42,8 +49,9 @@ if (props.latLng.lat){
     }
 }
 
-const weather = computed(()=> conditions.value?.periods[0]?.weather ?? undefined)
-const temp = computed(()=> conditions.value?.periods[0]?.temp ?? undefined)
+const rating = computed(()=> conditions.value?.response[0]?.indice?.current)
+const weatherConditions = computed(()=> weather.value?.periods[0])
+const temp = computed(()=> weatherConditions.value?.temp ?? undefined)
 
 </script>
 
@@ -52,7 +60,7 @@ const temp = computed(()=> conditions.value?.periods[0]?.temp ?? undefined)
    
     <q-card-section>
       <div class="text-h6">Weather Conditions</div>
-      <div class="text-subtitle2 text-italic text-gray" v-if="conditions && !isLoading">{{ conditions?.place?.name}}, {{ conditions?.place?.state}}</div>
+      <div class="text-subtitle2 text-italic text-gray" v-if="weather && !isLoading">{{ weather?.place?.name}}, {{ weather?.place?.state}}</div>
     </q-card-section>
     <q-separator />
 
@@ -60,18 +68,24 @@ const temp = computed(()=> conditions.value?.periods[0]?.temp ?? undefined)
       <q-card-section>
         <div class="text-subtitle2">
           <p><span style="font-size: 1.3rem;">{{ Math.round(temp?.avgF ?? 0) }}</span>°F</p>
-          <p>{{ weather?.phrase ?? 'N/A' }}</p>
+          <p>{{ weatherConditions?.weather?.phrase ?? 'N/A' }}</p>
         </div>
       </q-card-section>
       <q-separator />
-      <q-card-section>
-        <p>Golf Conditions for Today ({{ conditions.rating }}/5)</p>
+      <q-card-section v-if="rating?.index">
+        <p>Golf Conditions for Today ({{ rating!.index }}/5)</p>
         <q-rating
-          v-model="conditions.rating"
+          readonly
+          v-model="rating!.index"
           size="2em"
           :max="5"
+          class="cursor-pointer"
           color="warning"
+          :title="`conditions are ${rating.indexENG}`"
         />
+          
+        <q-tooltip class="bg-primary">conditions are {{ rating.indexENG }}</q-tooltip>
+        
       </q-card-section>
    </q-card-section>
 
