@@ -14,6 +14,12 @@ export default defineConfig({
       sassVariables: 'src/quasar-variables.sass'
     })
   ],
+
+  build: {
+    outDir: path.resolve(__dirname, '../app/static'),
+    minify: 'terser'
+  },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

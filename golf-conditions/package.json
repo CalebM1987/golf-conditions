@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "standard-version": {
+    "posttag": "npm run build"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -21,7 +29,9 @@
   },
   "devDependencies": {
     "@quasar/vite-plugin": "^1.2.3",
+    "@types/debug": "^4.1.7",
     "@vitejs/plugin-vue": "^3.1.0",
+    "cz-conventional-changelog": "^3.3.0",
     "sass": "^1.32.12",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
