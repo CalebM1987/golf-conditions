@@ -53,9 +53,8 @@ The golf course data is stored in a json file [here](./app/data/All_MN_Courses.j
 
 ### front end app
 
-There is a [front end app](./golf-conditions/) available to use the API to find golf conditions at any given location.  When clicking on the map, a request is made to the [aeris weather conditions endpoint](https://www.aerisweather.com/support/docs/api/reference/endpoints/conditions/) looking at the next 6 hours to calculate a suitability ranking on a 1-5 scale (1=bad, 5=good) to determine the conditions for playing golf at that location:
+There is a [front end app](./golf-conditions/) available to use the API to find golf conditions at any given location.  When clicking on the map, a request is made to the [aeris weather conditions endpoint](https://www.aerisweather.com/support/docs/api/reference/endpoints/conditions/) looking at the next 6 hours to calculate a suitability ranking on a 1-5 scale (1=bad, 5=good) to determine the conditions for playing golf at that location.
 
-![san diego](./resources/images/san-diego.png)
 
 When the [service](./app/main.py) is running, the app should be served at the default location of [http://127.0.0.1:8000/app](http://127.0.0.1:8000/app) (may have to use `localhost:8000/app`) where you can click on a golf course to see the current condition rating:
 
@@ -63,7 +62,12 @@ When the [service](./app/main.py) is running, the app should be served at the de
 
 You can also use the `Geocoder` in the upper right hand corner to check on areas that are nice for playing golf year around:
 
-make the following env file at `/golf-conditions/.env`:
+
+![san diego](./resources/images/san-diego.png)
+
+#### front end app setup
+
+To modify the front end app source code, some additional setup is requried. Make the following env file at `/golf-conditions/.env`:
 
 ```
 # /golf-conditions/.env
@@ -79,6 +83,16 @@ and then a production one, where you can change the public path if hosting from 
 # /golf-conditions/.env.production
 VITE_APP_PUBLIC_PATH=..
 ```
+
+then cd into the `/golf-conditions` directory and install dependencies:
+
+```sh
+cd golf-conditions
+npm i
+npm run dev
+```
+
+#### about the front end app
 
 This app was build with Vue.js, TypeScript, Vite and [vue-mapbox-ts](https://gitlab.com/relief-melone/vue-mapbox-ts).
 
