@@ -40,12 +40,29 @@ By default, this will spin up on port `8000` at [http://localhost:8000](http://l
 
 ![swagger](./resources/images/swagger.png)
 
-or if you prefer [ReDocs](https://redocly.github.io/redoc/):
-[http://127.0.0.1:8000/redoc(http://127.0.0.1:8000/redoc)
+or if you prefer [ReDoc](https://redocly.github.io/redoc/):
+
+[http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
 ![redoc](./resources/images/redoc.png)
+
+#### golf course data
+
+The golf course data is stored in a json file [here](./app/data/All_MN_Courses.json). This data was derived from manually downloading a few json payloads from [MinnesotaGolf.com](https://minnesotagolf.com/fairways), and then using a [script](./app/scripts/crawler.js) to scrape and join data for each region and finally merge all the regions together into one data source.
 
 
 ### front end app
+
+There is a [front end app](./golf-conditions/) available to use the API to find golf conditions at any given location.  When clicking on the map, a request is made to the [aeris weather conditions endpoint](https://www.aerisweather.com/support/docs/api/reference/endpoints/conditions/) looking at the next 6 hours to calculate a suitability ranking on a 1-5 scale (1=bad, 5=good) to determine the conditions for playing golf at that location:
+
+![san diego](./resources/images/san-diego.png)
+
+When the [service](./app/main.py) is running, the app should be served at the default location of [http://127.0.0.1:8000/app](http://127.0.0.1:8000/app) (may have to use `localhost:8000/app`) where you can click on a golf course to see the current condition rating:
+
+![front end app](./resources/images/front-end-app.png)
+
+You can also use the `Geocoder` in the upper right hand corner to check on areas that are nice for playing golf year around:
+
 make the following env file at `/golf-conditions/.env`:
 
 ```
@@ -62,3 +79,5 @@ and then a production one, where you can change the public path if hosting from 
 # /golf-conditions/.env.production
 VITE_APP_PUBLIC_PATH=..
 ```
+
+This app was build with Vue.js, TypeScript, Vite and [vue-mapbox-ts](https://gitlab.com/relief-melone/vue-mapbox-ts).
