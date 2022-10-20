@@ -53,7 +53,9 @@ The golf course data is stored in a json file [here](./app/data/All_MN_Courses.j
 
 ### front end app
 
-There is a [front end app](./golf-conditions/) available to use the API to find golf conditions at any given location.  When clicking on the map, a request is made to the [aeris weather conditions endpoint](https://www.aerisweather.com/support/docs/api/reference/endpoints/conditions/) looking at the next 6 hours to calculate a suitability ranking on a 1-5 scale (1=bad, 5=good) to determine the conditions for playing golf at that location.
+There is a [front end app](./golf-conditions/) available to use the API to find golf conditions at any given location.  When clicking on the map, a request is made to the [aeris weather conditions endpoint](https://www.aerisweather.com/support/docs/api/reference/endpoints/conditions/) looking at the next 6 hours to calculate a suitability ranking on a 1-5 scale (1=bad, 5=good) to determine the conditions for playing golf at that location:
+
+![golf index request](./resources/images/golf-index-request.png)
 
 
 When the [service](./app/main.py) is running, the app should be served at the default location of [http://127.0.0.1:8000/app](http://127.0.0.1:8000/app) (may have to use `localhost:8000/app`) where you can click on a golf course to see the current condition rating:
