@@ -1,7 +1,8 @@
-import {  GolfCourseFeature } from './../types/golf';
+
+import {  GolfCourseFeature } from '@/types/golf';
 import { Map, PointLike } from 'mapbox-gl'
 import { useGolfCourses } from './golf-courses';
-import { selectedIds } from '@/store'
+import { selectedIds, setWeatherLocation } from '@/store'
 
 export function useMapboxMap(map: Map){
 
@@ -30,6 +31,8 @@ export function useMapboxMap(map: Map){
       [e.point.x - 5, e.point.y - 5],
       [e.point.x + 5, e.point.y + 5]
     ] as [PointLike, PointLike]
+
+    setWeatherLocation(e.lngLat.lng, e.lngLat.lat)
 
     // select features
     const selectedFeatures = map.queryRenderedFeatures(bbox, {
