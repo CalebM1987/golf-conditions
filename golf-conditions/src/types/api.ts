@@ -13,9 +13,11 @@ export interface paths {
     get: operations["get_single_course_golf_courses__id__get"];
   };
   "/weather/{loc}": {
+    /** fetch weather conditions at a given location */
     get: operations["get_weather_weather__loc__get"];
   };
   "/golf-conditions/{loc}": {
+    /** fetch conditions for golfing at a given location */
     get: operations["golf_conditions_golf_conditions__loc__get"];
   };
 }
@@ -59,23 +61,29 @@ export interface components {
       /** Detail */
       detail?: components["schemas"]["ValidationError"][];
     };
+    /** IndexRange */
+    IndexRange: {
+      /** Min */
+      min: number;
+      /** Max */
+      max: number;
+      /** Reverse */
+      reverse: boolean;
+    };
+    /** Indice */
+    Indice: {
+      /** Type */
+      type: string;
+      range: components["schemas"]["IndexRange"];
+      past?: components["schemas"]["RatingIndex"];
+      current: components["schemas"]["RatingIndex"];
+    };
     /** LatLng */
     LatLng: {
       /** Lat */
       lat: number;
-      /** Lng */
-      lng: number;
-    };
-    /** Period */
-    Period: {
-      /** Timestamp */
-      timestamp: number;
-      range: components["schemas"]["TimeRange"];
-      precip: components["schemas"]["Precip"];
-      temp: components["schemas"]["TempLike"];
-      dewpoint: components["schemas"]["TempLike"];
-      windSpeed: components["schemas"]["WindSpeed"];
-      weather: components["schemas"]["Weather"];
+      /** Long */
+      long: number;
     };
     /** Place */
     Place: {
@@ -101,89 +109,37 @@ export interface components {
       /** Coordinates */
       coordinates: number[];
     };
-    /** Precip */
-    Precip: {
-      /** Maxtimestamp */
-      maxTimestamp: number;
-      /** Maxdatetimeiso */
-      maxDateTimeISO: string;
-      /** Mintimestamp */
-      minTimestamp: number;
-      /** Mindatetimeiso */
-      minDateTimeISO: string;
-      /** Maxmm */
-      maxMM: number;
-      /** Minmm */
-      minMM: number;
-      /** Avgmm */
-      avgMM: number;
-      /** Totalmm */
-      totalMM: number;
-      /** Maxin */
-      maxIN: number;
-      /** Minin */
-      minIN: number;
-      /** Avgin */
-      avgIN: number;
-      /** Totalin */
-      totalIN: number;
+    /** Profile */
+    Profile: {
+      /** Tz */
+      tz: string;
+    };
+    /** RatingIndex */
+    RatingIndex: {
+      /** Timestamp */
+      timestamp: number;
+      /** Datetimeiso */
+      dateTimeISO: string;
+      /** Index */
+      index: number;
+      /** Indexeng */
+      indexENG: string;
     };
     /** RatingResponse */
     RatingResponse: {
-      scores: components["schemas"]["RatingScores"];
-      /** Rating */
-      rating: number;
+      /** Success */
+      success: boolean;
+      /** Error */
+      error?: string;
+      /** Response */
+      response: components["schemas"]["ResponseObject"][];
+    };
+    /** ResponseObject */
+    ResponseObject: {
       loc: components["schemas"]["LatLng"];
       place: components["schemas"]["Place"];
-      /** Periods */
-      periods: components["schemas"]["Period"][];
-    };
-    /** RatingScores */
-    RatingScores: {
-      /** Temp */
-      temp: number;
-      /** Wind */
-      wind: number;
-      /** Precip */
-      precip: number;
-      /** Dew */
-      dew: number;
-    };
-    /** TempLike */
-    TempLike: {
-      /** Maxtimestamp */
-      maxTimestamp: number;
-      /** Maxdatetimeiso */
-      maxDateTimeISO: string;
-      /** Mintimestamp */
-      minTimestamp: number;
-      /** Mindatetimeiso */
-      minDateTimeISO: string;
-      /** Maxc */
-      maxC: number;
-      /** Minc */
-      minC: number;
-      /** Avgc */
-      avgC: number;
-      /** Maxf */
-      maxF: number;
-      /** Minf */
-      minF: number;
-      /** Avgf */
-      avgF: number;
-    };
-    /** TimeRange */
-    TimeRange: {
-      /** Maxtimestamp */
-      maxTimestamp: number;
-      /** Maxdatetimeiso */
-      maxDateTimeISO: string;
-      /** Mintimestamp */
-      minTimestamp: number;
-      /** Mindatetimeiso */
-      minDateTimeISO: string;
-      /** Count */
-      count: number;
+      profile: components["schemas"]["Profile"];
+      indice: components["schemas"]["Indice"];
     };
     /** ValidationError */
     ValidationError: {
@@ -193,36 +149,6 @@ export interface components {
       msg: string;
       /** Error Type */
       type: string;
-    };
-    /** Weather */
-    Weather: {
-      /** Phrase */
-      phrase: string;
-      /** Primary */
-      primary: string;
-    };
-    /** WindSpeed */
-    WindSpeed: {
-      /** Maxtimestamp */
-      maxTimestamp: number;
-      /** Maxdatetimeiso */
-      maxDateTimeISO: string;
-      /** Mintimestamp */
-      minTimestamp: number;
-      /** Mindatetimeiso */
-      minDateTimeISO: string;
-      /** Maxkts */
-      maxKTS: number;
-      /** Mixkts */
-      mixKTS: number;
-      /** Avxkts */
-      avxKTS: number;
-      /** Maxkph */
-      maxKPH: number;
-      /** Mixkph */
-      mixKPH: number;
-      /** Avxkph */
-      avxKPH: number;
     };
   };
 }
@@ -286,6 +212,7 @@ export interface operations {
       };
     };
   };
+  /** fetch weather conditions at a given location */
   get_weather_weather__loc__get: {
     parameters: {
       path: {
@@ -307,10 +234,14 @@ export interface operations {
       };
     };
   };
+  /** fetch conditions for golfing at a given location */
   golf_conditions_golf_conditions__loc__get: {
     parameters: {
       path: {
         loc: string;
+      };
+      query: {
+        reverse?: boolean;
       };
     };
     responses: {
