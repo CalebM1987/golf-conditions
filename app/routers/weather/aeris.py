@@ -4,6 +4,7 @@ import math
 from typing import Union
 from munch import munchify
 from dotenv import dotenv_values
+from .models import RatingResponse
 
 dotfile = os.path.join(os.path.abspath(os.path.dirname(__file__)), '.env')
 aries_env = dotenv_values(dotfile)
@@ -104,7 +105,7 @@ def get_dew_rating(d: float, temp: float) -> float:
     return normalize(d, low, high)
 
 
-async def get_golf_conditions(location: str) -> int:
+async def get_golf_conditions(location: str) -> RatingResponse:
     """calculates a golf condition ranking from 1-5, based on weighted criteria
 
     https://theweatherprediction.com/habyhints2/606/

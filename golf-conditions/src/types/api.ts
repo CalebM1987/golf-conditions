@@ -59,6 +59,33 @@ export interface components {
       /** Detail */
       detail?: components["schemas"]["ValidationError"][];
     };
+    /** LatLng */
+    LatLng: {
+      /** Lat */
+      lat: number;
+      /** Lng */
+      lng: number;
+    };
+    /** Period */
+    Period: {
+      /** Timestamp */
+      timestamp: number;
+      range: components["schemas"]["TimeRange"];
+      precip: components["schemas"]["Precip"];
+      temp: components["schemas"]["TempLike"];
+      dewpoint: components["schemas"]["TempLike"];
+      windSpeed: components["schemas"]["WindSpeed"];
+      weather: components["schemas"]["Weather"];
+    };
+    /** Place */
+    Place: {
+      /** Name */
+      name: string;
+      /** State */
+      state: string;
+      /** Country */
+      country: string;
+    };
     /** PointFeature */
     PointFeature: {
       /** Type */
@@ -74,6 +101,90 @@ export interface components {
       /** Coordinates */
       coordinates: number[];
     };
+    /** Precip */
+    Precip: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Maxmm */
+      maxMM: number;
+      /** Minmm */
+      minMM: number;
+      /** Avgmm */
+      avgMM: number;
+      /** Totalmm */
+      totalMM: number;
+      /** Maxin */
+      maxIN: number;
+      /** Minin */
+      minIN: number;
+      /** Avgin */
+      avgIN: number;
+      /** Totalin */
+      totalIN: number;
+    };
+    /** RatingResponse */
+    RatingResponse: {
+      scores: components["schemas"]["RatingScores"];
+      /** Rating */
+      rating: number;
+      loc: components["schemas"]["LatLng"];
+      place: components["schemas"]["Place"];
+      /** Periods */
+      periods: components["schemas"]["Period"][];
+    };
+    /** RatingScores */
+    RatingScores: {
+      /** Temp */
+      temp: number;
+      /** Wind */
+      wind: number;
+      /** Precip */
+      precip: number;
+      /** Dew */
+      dew: number;
+    };
+    /** TempLike */
+    TempLike: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Maxc */
+      maxC: number;
+      /** Minc */
+      minC: number;
+      /** Avgc */
+      avgC: number;
+      /** Maxf */
+      maxF: number;
+      /** Minf */
+      minF: number;
+      /** Avgf */
+      avgF: number;
+    };
+    /** TimeRange */
+    TimeRange: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Count */
+      count: number;
+    };
     /** ValidationError */
     ValidationError: {
       /** Location */
@@ -82,6 +193,36 @@ export interface components {
       msg: string;
       /** Error Type */
       type: string;
+    };
+    /** Weather */
+    Weather: {
+      /** Phrase */
+      phrase: string;
+      /** Primary */
+      primary: string;
+    };
+    /** WindSpeed */
+    WindSpeed: {
+      /** Maxtimestamp */
+      maxTimestamp: number;
+      /** Maxdatetimeiso */
+      maxDateTimeISO: string;
+      /** Mintimestamp */
+      minTimestamp: number;
+      /** Mindatetimeiso */
+      minDateTimeISO: string;
+      /** Maxkts */
+      maxKTS: number;
+      /** Mixkts */
+      mixKTS: number;
+      /** Avxkts */
+      avxKTS: number;
+      /** Maxkph */
+      maxKPH: number;
+      /** Mixkph */
+      mixKPH: number;
+      /** Avxkph */
+      avxKPH: number;
     };
   };
 }
@@ -176,7 +317,7 @@ export interface operations {
       /** Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          "application/json": components["schemas"]["RatingResponse"];
         };
       };
       /** Validation Error */
