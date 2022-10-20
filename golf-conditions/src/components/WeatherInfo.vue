@@ -81,7 +81,6 @@ const temp = computed(()=> weatherConditions.value?.temp ?? undefined)
           :max="5"
           class="cursor-pointer"
           color="warning"
-          :title="`conditions are ${rating.indexENG}`"
         />
           
         <q-tooltip class="bg-primary">conditions are {{ rating.indexENG }}</q-tooltip>
