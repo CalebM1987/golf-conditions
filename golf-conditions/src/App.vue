@@ -18,9 +18,7 @@ const toggleLeftDrawer = ()=> {
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
-          </q-avatar>
+          <q-icon name="golf_course" />
           Golf Course Conditions
         </q-toolbar-title>
       </q-toolbar>
