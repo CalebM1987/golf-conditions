@@ -7,7 +7,6 @@ import { baseUrl, golfCourses } from '@/store';
 const didAddLayers = ref(false)
 
 export function useGolfCourses(map: Map){
-  console.log('use golf courses?', map)
 
   const addSource = async ()=> {
 
@@ -22,27 +21,33 @@ export function useGolfCourses(map: Map){
       type: 'geojson',
       // @ts-ignore
       data
-      // Use a URL for the value for the `data` property.
-      // data: `${baseUrl.value}/golf-courses?f=geojson`
+      
     });
        
     map.addLayer({
       'id': 'golf-courses-layer',
-      'type': 'circle',
+      'type': 'symbol',
       'source': 'golf-courses',
-      'paint': {
-        'circle-radius': 4,
-        'circle-stroke-width': 2,
-        'circle-color': 'red',
-        'circle-stroke-color': 'white'
-       },
-      //  'layout': {
-      //     'text-field': ['get', 'CourseName'],
-      //     'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-      //     'text-radial-offset': 0.5,
-      //     'text-justify': 'auto',
-      //     // 'icon-image': ['get', 'icon']
-      //   }
+      'layout': {
+        'text-field': ['get', 'CourseName'],
+        'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+        'text-radial-offset': 0.5,
+        'text-justify': 'auto',
+        'icon-image': 'golf-15',
+        'icon-size': 1,
+        'text-size': {
+          "stops": [
+              [0, 0],
+              [9, 0],
+              [10, 11]
+            ]
+          }
+        },
+        paint: {
+          'text-halo-color': 'white',
+          'text-halo-width': 1,
+          'text-color': 'green',
+        }
     });
 
     map.addLayer({
@@ -58,9 +63,6 @@ export function useGolfCourses(map: Map){
        'filter': ['in', 'id', '']
     })
 
-    //@ts-ignore
-    window.map = map
-
     didAddLayers.value = true
     
   }
@@ -71,7 +73,6 @@ export function useGolfCourses(map: Map){
       addSource()
     } else {
       map.on('load', ()=> {
-        console.log('map on load in gc?')
         addSource()
       })
     }

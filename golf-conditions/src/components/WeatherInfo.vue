@@ -15,7 +15,6 @@ interface Props {
 const props = defineProps<Props>()
 
 watch(()=> [props.latLng], async ([loc])=> {
-  console.log('weather location changed: ', loc)
   if (loc?.lat){
     try {
       isLoading.value = true

@@ -16,7 +16,6 @@ const onLoad = (map: Map) => {
 }
 
 const handleResult = (result: any) => {
-  console.log('geocode result?', result)
   setWeatherLocation(...result.center as [number, number])
 }
 

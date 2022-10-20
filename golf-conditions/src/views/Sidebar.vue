@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineAsyncComponent, computed, ref, onMounted } from 'vue';
+import { defineAsyncComponent, computed, } from 'vue';
 import { 
   golfCourses, 
   selectedIds, 
@@ -12,14 +12,7 @@ import {
 const GolfCourseInfo = defineAsyncComponent(()=> import('@/components/GolfCourseInfo.vue'))
 const WeatherInfo = defineAsyncComponent(()=> import('@/components/WeatherInfo.vue'))
 
-onMounted(()=> console.log('mounted sidebar'))
-
 const hasLocation = computed(()=> weatherLocation.value.lat)
-
-//@ts-ignore
-window.selected = selectedFeature
-//@ts-ignore
-window.loc = weatherLocation
 </script>
 
 <template>
