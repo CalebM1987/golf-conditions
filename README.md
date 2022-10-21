@@ -94,6 +94,14 @@ npm i
 npm run dev
 ```
 
+In order to build the `dist` files for the backend services, you will also need to run:
+
+```sh
+npm run build
+```
+
+This will automatically deploy the transpiled code to the `app/static` folder and can then be served through the `/app` endpoint.
+
 #### about the front end app
 
 This app was build with Vue.js, TypeScript, Vite and [vue-mapbox-ts](https://gitlab.com/relief-melone/vue-mapbox-ts).
