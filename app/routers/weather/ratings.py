@@ -1,4 +1,14 @@
 def normalize(v: float, l: float, h: float):
+    """normalize data on a scale of 0 - 1.0
+
+    Args:
+        v (float): value to normalize
+        l (float): low val
+        h (float): high val
+
+    Returns:
+        _type_: the normalized value
+    """
     return (v - l) / (h - l)
 
 def get_temp_rating(t: float, ideal=75) -> float:
