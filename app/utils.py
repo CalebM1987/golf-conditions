@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from typing import List, TypeVar, Generic, Optional
 from fastapi.openapi.utils import get_openapi
 from pydantic import BaseModel
+from enum import Enum
 import datetime
 
 T = TypeVar('T')
@@ -19,25 +20,35 @@ class GeoJSONFeatureCollection(BaseModel, Generic[T]):
     type: str
     features: List[PointFeature[T]]
 
-class GeoJSONFormatArg(BaseModel):
-    f: Optional[str]
+class Format(str, Enum):
+    json = 'json'
+    geojson = 'geojson'
     
-SKIP_KWARGS = ['f']
+class CommonParams(BaseModel):
+    f: Optional[Format]
+    limit: Optional[int]
+    
+SKIP_KWARGS = ['f', 'limit']
 
-def filter_json_results(data: List[T], **kwargs) -> List[T]:
+def filter_json_results(data: List[T], limit: int=None, **kwargs) -> List[T]:
     """filters json results by given kwargs
 
     Args:
         data (List[T]): the data to filter
+        limit (int): option to limit the number of results
         **kwargs: the key, value pairs of filters
 
     Returns:
         List[T]: the filtered results
     """
+    if isinstance(limit, str):
+        limit = int(limit)
+    if not isinstance(data, list):
+        data = [ data ]
     if not kwargs:
         return data
     keys = [k for k in kwargs.keys() if k not in SKIP_KWARGS]
-    return [ft for ft in data if all(map(lambda k: kwargs[k] == ft.get(k), keys))]
+    return [ft for ft in data if all(map(lambda k: kwargs[k] == ft.get(k), keys))][:limit]
 
 def customize_openapi(app: FastAPI, title: str, description: str=None, version: str='1.0.0'):
     if app.openapi_schema:
