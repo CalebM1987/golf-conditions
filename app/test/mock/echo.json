@@ -1,0 +1,331 @@
+{
+  "success": true,
+  "error": null,
+  "response": [
+      {
+          "loc": {
+              "lat": 45.74235,
+              "long": -119.19557
+          },
+          "place": {
+              "name": "echo",
+              "state": "or",
+              "country": "us"
+          },
+          "periods": [
+              {
+                  "timestamp": 1666335600,
+                  "dateTimeISO": "2022-10-21T00:00:00-07:00",
+                  "range": {
+                      "maxTimestamp": 1666418400,
+                      "maxDateTimeISO": "2022-10-21T23:00:00-07:00",
+                      "minTimestamp": 1666335600,
+                      "minDateTimeISO": "2022-10-21T00:00:00-07:00",
+                      "count": 24
+                  },
+                  "temp": {
+                      "maxC": 17.51,
+                      "minC": 8.73,
+                      "avgC": 12.93,
+                      "maxF": 63.52,
+                      "minF": 47.71,
+                      "avgF": 55.28,
+                      "maxTimestamp": 1666335600,
+                      "maxDateTimeISO": "2022-10-21T00:00:00-07:00",
+                      "minTimestamp": 1666414800,
+                      "minDateTimeISO": "2022-10-21T22:00:00-07:00"
+                  },
+                  "feelslike": {
+                      "maxC": 17.51,
+                      "minC": 7.53,
+                      "avgC": 12.68,
+                      "maxF": 63.52,
+                      "minF": 45.55,
+                      "avgF": 54.82,
+                      "maxTimestamp": 1666335600,
+                      "maxDateTimeISO": "2022-10-21T00:00:00-07:00",
+                      "minTimestamp": 1666418400,
+                      "minDateTimeISO": "2022-10-21T23:00:00-07:00"
+                  },
+                  "dewpoint": {
+                      "maxC": 10.23,
+                      "minC": -4.17,
+                      "avgC": 4.47,
+                      "maxF": 50.41,
+                      "minF": 24.49,
+                      "avgF": 40.05,
+                      "maxTimestamp": 1666335600,
+                      "maxDateTimeISO": "2022-10-21T00:00:00-07:00",
+                      "minTimestamp": 1666368000,
+                      "minDateTimeISO": "2022-10-21T09:00:00-07:00"
+                  },
+                  "humidity": {
+                      "max": 100,
+                      "min": 26.6,
+                      "avg": 61.59,
+                      "maxTimestamp": 1666418400,
+                      "maxDateTimeISO": "2022-10-21T23:00:00-07:00",
+                      "minTimestamp": 1666368000,
+                      "minDateTimeISO": "2022-10-21T09:00:00-07:00"
+                  },
+                  "windSpeed": {
+                      "maxKTS": 18.1,
+                      "minKTS": 5,
+                      "avgKTS": 11.35,
+                      "maxKPH": 33.53,
+                      "minKPH": 9.26,
+                      "avgKPH": 21.02,
+                      "maxMPH": 20.83,
+                      "minMPH": 5.75,
+                      "avgMPH": 13.06,
+                      "maxTimestamp": 1666357200,
+                      "maxDateTimeISO": "2022-10-21T06:00:00-07:00",
+                      "minTimestamp": 1666407600,
+                      "minDateTimeISO": "2022-10-21T20:00:00-07:00",
+                      "maxDirDEG": 242,
+                      "maxDir": "WSW",
+                      "minDirDEG": 210,
+                      "minDir": "SSW"
+                  },
+                  "windGust": {
+                      "maxKTS": 32.22,
+                      "minKTS": 12,
+                      "avgKTS": 20.3,
+                      "maxKPH": 59.68,
+                      "minKPH": 22.22,
+                      "avgKPH": 37.6,
+                      "maxMPH": 37.08,
+                      "minMPH": 13.81,
+                      "avgMPH": 23.36,
+                      "maxTimestamp": 1666353600,
+                      "maxDateTimeISO": "2022-10-21T05:00:00-07:00",
+                      "minTimestamp": 1666418400,
+                      "minDateTimeISO": "2022-10-21T23:00:00-07:00"
+                  },
+                  "precip": {
+                      "maxMM": 6.93,
+                      "minMM": 0,
+                      "avgMM": 0.83,
+                      "totalMM": 19.95,
+                      "maxIN": 0.27,
+                      "minIN": 0,
+                      "avgIN": 0.03,
+                      "totalIN": 0.79,
+                      "maxTimestamp": 1666404000,
+                      "maxDateTimeISO": "2022-10-21T19:00:00-07:00",
+                      "minTimestamp": 1666335600,
+                      "minDateTimeISO": "2022-10-21T00:00:00-07:00"
+                  },
+                  "snow": {
+                      "maxCM": 0,
+                      "minCM": 0,
+                      "avgCM": 0,
+                      "totalCM": 0,
+                      "maxIN": 0,
+                      "minIN": 0,
+                      "avgIN": 0,
+                      "totalIN": 0,
+                      "maxTimestamp": 1666335600,
+                      "maxDateTimeISO": "2022-10-21T00:00:00-07:00",
+                      "minTimestamp": 1666335600,
+                      "minDateTimeISO": "2022-10-21T00:00:00-07:00"
+                  },
+                  "pressure": {
+                      "maxMB": 1012.4,
+                      "minMB": 999,
+                      "avgMB": 1008,
+                      "maxIN": 29.9,
+                      "minIN": 29.5,
+                      "avgIN": 29.77,
+                      "maxTimestamp": 1666346400,
+                      "maxDateTimeISO": "2022-10-21T03:00:00-07:00",
+                      "minTimestamp": 1666414800,
+                      "minDateTimeISO": "2022-10-21T22:00:00-07:00"
+                  },
+                  "visibility": {
+                      "maxKM": 17.291,
+                      "minKM": 5.812,
+                      "avgKM": 13.431,
+                      "maxMI": 10.744,
+                      "minMI": 3.612,
+                      "avgMI": 8.346,
+                      "maxTimestamp": 1666400400,
+                      "maxDateTimeISO": "2022-10-21T18:00:00-07:00",
+                      "minTimestamp": 1666393200,
+                      "minDateTimeISO": "2022-10-21T16:00:00-07:00"
+                  },
+                  "sky": {
+                      "max": 100,
+                      "min": 4.8503361427293,
+                      "avg": 68.727962000434,
+                      "maxTimestamp": 1666368000,
+                      "maxDateTimeISO": "2022-10-21T09:00:00-07:00",
+                      "minTimestamp": 1666339200,
+                      "minDateTimeISO": "2022-10-21T01:00:00-07:00",
+                      "coded": [
+                          {
+                              "code": "SC",
+                              "timestamp": 1666335600,
+                              "dateTimeISO": "2022-10-21T00:00:00-07:00"
+                          },
+                          {
+                              "code": "CL",
+                              "timestamp": 1666339200,
+                              "dateTimeISO": "2022-10-21T01:00:00-07:00"
+                          },
+                          {
+                              "code": "FW",
+                              "timestamp": 1666342800,
+                              "dateTimeISO": "2022-10-21T02:00:00-07:00"
+                          },
+                          {
+                              "code": "OV",
+                              "timestamp": 1666368000,
+                              "dateTimeISO": "2022-10-21T09:00:00-07:00"
+                          }
+                      ]
+                  },
+                  "weather": {
+                      "phrase": "Partly Cloudy with Light Rain Showers",
+                      "primary": "Rain Showers",
+                      "primaryCoded": ":VL:RW",
+                      "icon": "showers.png",
+                      "coded": [
+                          {
+                              "code": "::SC",
+                              "timestamp": 1666335600,
+                              "dateTimeISO": "2022-10-21T00:00:00-07:00"
+                          },
+                          {
+                              "code": "::CL",
+                              "timestamp": 1666339200,
+                              "dateTimeISO": "2022-10-21T01:00:00-07:00"
+                          },
+                          {
+                              "code": "::FW",
+                              "timestamp": 1666342800,
+                              "dateTimeISO": "2022-10-21T02:00:00-07:00"
+                          },
+                          {
+                              "code": "::OV",
+                              "timestamp": 1666368000,
+                              "dateTimeISO": "2022-10-21T09:00:00-07:00"
+                          },
+                          {
+                              "code": ":VL:RW",
+                              "timestamp": 1666378800,
+                              "dateTimeISO": "2022-10-21T12:00:00-07:00"
+                          },
+                          {
+                              "code": "IS:VL:RW",
+                              "timestamp": 1666386000,
+                              "dateTimeISO": "2022-10-21T14:00:00-07:00"
+                          },
+                          {
+                              "code": "SC:L:RW",
+                              "timestamp": 1666393200,
+                              "dateTimeISO": "2022-10-21T16:00:00-07:00"
+                          },
+                          {
+                              "code": "D::R",
+                              "timestamp": 1666396800,
+                              "dateTimeISO": "2022-10-21T17:00:00-07:00"
+                          },
+                          {
+                              "code": "SC:L:RW",
+                              "timestamp": 1666407600,
+                              "dateTimeISO": "2022-10-21T20:00:00-07:00"
+                          },
+                          {
+                              "code": "D::R",
+                              "timestamp": 1666414800,
+                              "dateTimeISO": "2022-10-21T22:00:00-07:00"
+                          }
+                      ]
+                  },
+                  "solrad": {
+                      "maxWM2": 129,
+                      "minWM2": 0,
+                      "avgWM2": 37,
+                      "totalWM2": 897,
+                      "maxTimestamp": 1666382400,
+                      "maxDateTimeISO": "2022-10-21T13:00:00-07:00",
+                      "minTimestamp": 1666335600,
+                      "minDateTimeISO": "2022-10-21T00:00:00-07:00",
+                      "ghi": {
+                          "maxWM2": 129,
+                          "minWM2": 0,
+                          "avgWM2": 37,
+                          "totalWM2": 896,
+                          "maxTimestamp": 1666382400,
+                          "maxDateTimeISO": "2022-10-21T13:00:00-07:00",
+                          "minTimestamp": 1666335600,
+                          "minDateTimeISO": "2022-10-21T00:00:00-07:00"
+                      },
+                      "dni": {
+                          "maxWM2": 405,
+                          "minWM2": 0,
+                          "avgWM2": 21,
+                          "totalWM2": 498,
+                          "maxTimestamp": 1666364400,
+                          "maxDateTimeISO": "2022-10-21T08:00:00-07:00",
+                          "minTimestamp": 1666335600,
+                          "minDateTimeISO": "2022-10-21T00:00:00-07:00"
+                      },
+                      "dhi": {
+                          "maxWM2": 117,
+                          "minWM2": 0,
+                          "avgWM2": 34,
+                          "totalWM2": 811,
+                          "maxTimestamp": 1666382400,
+                          "maxDateTimeISO": "2022-10-21T13:00:00-07:00",
+                          "minTimestamp": 1666335600,
+                          "minDateTimeISO": "2022-10-21T00:00:00-07:00"
+                      }
+                  },
+                  "uvi": {
+                      "max": 1,
+                      "min": 0,
+                      "avg": 0.13,
+                      "maxTimestamp": 1666378800,
+                      "maxDateTimeISO": "2022-10-21T12:00:00-07:00",
+                      "minTimestamp": 1666335600,
+                      "minDateTimeISO": "2022-10-21T00:00:00-07:00"
+                  },
+                  "spressure": {
+                      "maxMB": 989.3,
+                      "minMB": 975.6,
+                      "avgMB": 984.8,
+                      "maxIN": 29.21,
+                      "minIN": 28.81,
+                      "avgIN": 29.08,
+                      "maxTimestamp": 1666346400,
+                      "maxDateTimeISO": "2022-10-21T03:00:00-07:00",
+                      "minTimestamp": 1666414800,
+                      "minDateTimeISO": "2022-10-21T22:00:00-07:00"
+                  },
+                  "altimeter": {
+                      "maxMB": 1012.3,
+                      "minMB": 998.4,
+                      "avgMB": 1007.7,
+                      "maxIN": 29.89,
+                      "minIN": 29.48,
+                      "avgIN": 29.76,
+                      "maxTimestamp": 1666346400,
+                      "maxDateTimeISO": "2022-10-21T03:00:00-07:00",
+                      "minTimestamp": 1666414800,
+                      "minDateTimeISO": "2022-10-21T22:00:00-07:00"
+                  }
+              }
+          ],
+          "profile": {
+              "tz": "America/Los_Angeles",
+              "tzname": "PDT",
+              "tzoffset": -25200,
+              "isDST": true,
+              "elevM": 196,
+              "elevFT": 643
+          }
+      }
+  ]
+}

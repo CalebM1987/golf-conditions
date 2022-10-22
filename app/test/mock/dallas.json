@@ -2,34 +2,310 @@
   "success": true,
   "error": null,
   "response": [
-    {
-      "loc": {
-        "lat": 32.78306,
-        "long": -96.80667
-      },
-      "place": {
-        "name": "dallas",
-        "state": "tx",
-        "country": "us"
-      },
-      "profile": {
-        "tz": "America/Chicago"
-      },
-      "indice": {
-        "type": "golf",
-        "range": {
-          "min": 1,
-          "max": 5,
-          "reverse": false
-        },
-        "past": null,
-        "current": {
-          "timestamp": 1666242000,
-          "dateTimeISO": "2022-10-20T00:00:00-05:00",
-          "index": 5,
-          "indexENG": "excellent"
-        }
+      {
+          "loc": {
+              "lat": 32.78306,
+              "long": -96.80667
+          },
+          "place": {
+              "name": "dallas",
+              "state": "tx",
+              "country": "us"
+          },
+          "periods": [
+              {
+                  "timestamp": 1666328400,
+                  "dateTimeISO": "2022-10-21T00:00:00-05:00",
+                  "range": {
+                      "maxTimestamp": 1666386000,
+                      "maxDateTimeISO": "2022-10-21T16:00:00-05:00",
+                      "minTimestamp": 1666328400,
+                      "minDateTimeISO": "2022-10-21T00:00:00-05:00",
+                      "count": 17
+                  },
+                  "temp": {
+                      "maxC": 32.42,
+                      "minC": 12.33,
+                      "avgC": 20,
+                      "maxF": 90.36,
+                      "minF": 54.19,
+                      "avgF": 68.01,
+                      "maxTimestamp": 1666386000,
+                      "maxDateTimeISO": "2022-10-21T16:00:00-05:00",
+                      "minTimestamp": 1666357200,
+                      "minDateTimeISO": "2022-10-21T08:00:00-05:00"
+                  },
+                  "feelslike": {
+                      "maxC": 32.42,
+                      "minC": 12.33,
+                      "avgC": 20,
+                      "maxF": 90.36,
+                      "minF": 54.19,
+                      "avgF": 68.01,
+                      "maxTimestamp": 1666386000,
+                      "maxDateTimeISO": "2022-10-21T16:00:00-05:00",
+                      "minTimestamp": 1666357200,
+                      "minDateTimeISO": "2022-10-21T08:00:00-05:00"
+                  },
+                  "dewpoint": {
+                      "maxC": 10.15,
+                      "minC": 7.52,
+                      "avgC": 8.87,
+                      "maxF": 50.26,
+                      "minF": 45.54,
+                      "avgF": 47.97,
+                      "maxTimestamp": 1666371600,
+                      "maxDateTimeISO": "2022-10-21T12:00:00-05:00",
+                      "minTimestamp": 1666386000,
+                      "minDateTimeISO": "2022-10-21T16:00:00-05:00"
+                  },
+                  "humidity": {
+                      "max": 76.18,
+                      "min": 21.32,
+                      "avg": 53.18,
+                      "maxTimestamp": 1666357200,
+                      "maxDateTimeISO": "2022-10-21T08:00:00-05:00",
+                      "minTimestamp": 1666386000,
+                      "minDateTimeISO": "2022-10-21T16:00:00-05:00"
+                  },
+                  "windSpeed": {
+                      "maxKTS": 6,
+                      "minKTS": 0,
+                      "avgKTS": 2.04,
+                      "maxKPH": 11.11,
+                      "minKPH": 0,
+                      "avgKPH": 3.77,
+                      "maxMPH": 6.9,
+                      "minMPH": 0,
+                      "avgMPH": 2.34,
+                      "maxTimestamp": 1666386000,
+                      "maxDateTimeISO": "2022-10-21T16:00:00-05:00",
+                      "minTimestamp": 1666339200,
+                      "minDateTimeISO": "2022-10-21T03:00:00-05:00",
+                      "maxDirDEG": 199,
+                      "maxDir": "SSW",
+                      "minDirDEG": 13,
+                      "minDir": "NNE"
+                  },
+                  "windGust": {
+                      "maxKTS": 12,
+                      "minKTS": 1.26,
+                      "avgKTS": 4.74,
+                      "maxKPH": 22.22,
+                      "minKPH": 2.34,
+                      "avgKPH": 8.77,
+                      "maxMPH": 13.81,
+                      "minMPH": 1.45,
+                      "avgMPH": 5.45,
+                      "maxTimestamp": 1666378800,
+                      "maxDateTimeISO": "2022-10-21T14:00:00-05:00",
+                      "minTimestamp": 1666346400,
+                      "minDateTimeISO": "2022-10-21T05:00:00-05:00"
+                  },
+                  "precip": {
+                      "maxMM": 0,
+                      "minMM": 0,
+                      "avgMM": 0,
+                      "totalMM": 0,
+                      "maxIN": 0,
+                      "minIN": 0,
+                      "avgIN": 0,
+                      "totalIN": 0,
+                      "maxTimestamp": 1666328400,
+                      "maxDateTimeISO": "2022-10-21T00:00:00-05:00",
+                      "minTimestamp": 1666328400,
+                      "minDateTimeISO": "2022-10-21T00:00:00-05:00"
+                  },
+                  "snow": {
+                      "maxCM": 0,
+                      "minCM": 0,
+                      "avgCM": 0,
+                      "totalCM": 0,
+                      "maxIN": 0,
+                      "minIN": 0,
+                      "avgIN": 0,
+                      "totalIN": 0,
+                      "maxTimestamp": 1666328400,
+                      "maxDateTimeISO": "2022-10-21T00:00:00-05:00",
+                      "minTimestamp": 1666328400,
+                      "minDateTimeISO": "2022-10-21T00:00:00-05:00"
+                  },
+                  "pressure": {
+                      "maxMB": 1014,
+                      "minMB": 1009,
+                      "avgMB": 1012.8,
+                      "maxIN": 29.94,
+                      "minIN": 29.8,
+                      "avgIN": 29.91,
+                      "maxTimestamp": 1666328400,
+                      "maxDateTimeISO": "2022-10-21T00:00:00-05:00",
+                      "minTimestamp": 1666386000,
+                      "minDateTimeISO": "2022-10-21T16:00:00-05:00"
+                  },
+                  "visibility": {
+                      "maxKM": 24.135,
+                      "minKM": 15.863,
+                      "avgKM": 17.416,
+                      "maxMI": 14.997,
+                      "minMI": 9.857,
+                      "avgMI": 10.822,
+                      "maxTimestamp": 1666378800,
+                      "maxDateTimeISO": "2022-10-21T14:00:00-05:00",
+                      "minTimestamp": 1666328400,
+                      "minDateTimeISO": "2022-10-21T00:00:00-05:00"
+                  },
+                  "sky": {
+                      "max": 12.044925124792,
+                      "min": 0,
+                      "avg": 2.3407537367808,
+                      "maxTimestamp": 1666382400,
+                      "maxDateTimeISO": "2022-10-21T15:00:00-05:00",
+                      "minTimestamp": 1666328400,
+                      "minDateTimeISO": "2022-10-21T00:00:00-05:00",
+                      "coded": [
+                          {
+                              "code": "CL",
+                              "timestamp": 1666328400,
+                              "dateTimeISO": "2022-10-21T00:00:00-05:00"
+                          },
+                          {
+                              "code": "FW",
+                              "timestamp": 1666368000,
+                              "dateTimeISO": "2022-10-21T11:00:00-05:00"
+                          },
+                          {
+                              "code": "CL",
+                              "timestamp": 1666375200,
+                              "dateTimeISO": "2022-10-21T13:00:00-05:00"
+                          },
+                          {
+                              "code": "FW",
+                              "timestamp": 1666378800,
+                              "dateTimeISO": "2022-10-21T14:00:00-05:00"
+                          },
+                          {
+                              "code": "CL",
+                              "timestamp": 1666386000,
+                              "dateTimeISO": "2022-10-21T16:00:00-05:00"
+                          }
+                      ]
+                  },
+                  "weather": {
+                      "phrase": "Sunny",
+                      "primary": "Sunny",
+                      "primaryCoded": "::CL",
+                      "icon": "sunny.png",
+                      "coded": [
+                          {
+                              "code": "::CL",
+                              "timestamp": 1666328400,
+                              "dateTimeISO": "2022-10-21T00:00:00-05:00"
+                          },
+                          {
+                              "code": "::FW",
+                              "timestamp": 1666368000,
+                              "dateTimeISO": "2022-10-21T11:00:00-05:00"
+                          },
+                          {
+                              "code": "::CL",
+                              "timestamp": 1666375200,
+                              "dateTimeISO": "2022-10-21T13:00:00-05:00"
+                          },
+                          {
+                              "code": "::FW",
+                              "timestamp": 1666378800,
+                              "dateTimeISO": "2022-10-21T14:00:00-05:00"
+                          },
+                          {
+                              "code": "::CL",
+                              "timestamp": 1666386000,
+                              "dateTimeISO": "2022-10-21T16:00:00-05:00"
+                          }
+                      ]
+                  },
+                  "solrad": {
+                      "maxWM2": 687,
+                      "minWM2": 0,
+                      "avgWM2": 255,
+                      "totalWM2": 4334,
+                      "maxTimestamp": 1666375200,
+                      "maxDateTimeISO": "2022-10-21T13:00:00-05:00",
+                      "minTimestamp": 1666328400,
+                      "minDateTimeISO": "2022-10-21T00:00:00-05:00",
+                      "ghi": {
+                          "maxWM2": 687,
+                          "minWM2": 0,
+                          "avgWM2": 255,
+                          "totalWM2": 4333,
+                          "maxTimestamp": 1666375200,
+                          "maxDateTimeISO": "2022-10-21T13:00:00-05:00",
+                          "minTimestamp": 1666328400,
+                          "minDateTimeISO": "2022-10-21T00:00:00-05:00"
+                      },
+                      "dni": {
+                          "maxWM2": 776,
+                          "minWM2": 0,
+                          "avgWM2": 358,
+                          "totalWM2": 6086,
+                          "maxTimestamp": 1666364400,
+                          "maxDateTimeISO": "2022-10-21T10:00:00-05:00",
+                          "minTimestamp": 1666328400,
+                          "minDateTimeISO": "2022-10-21T00:00:00-05:00"
+                      },
+                      "dhi": {
+                          "maxWM2": 188,
+                          "minWM2": 0,
+                          "avgWM2": 59,
+                          "totalWM2": 996,
+                          "maxTimestamp": 1666375200,
+                          "maxDateTimeISO": "2022-10-21T13:00:00-05:00",
+                          "minTimestamp": 1666328400,
+                          "minDateTimeISO": "2022-10-21T00:00:00-05:00"
+                      }
+                  },
+                  "uvi": {
+                      "max": 5,
+                      "min": 0,
+                      "avg": 1.35,
+                      "maxTimestamp": 1666375200,
+                      "maxDateTimeISO": "2022-10-21T13:00:00-05:00",
+                      "minTimestamp": 1666328400,
+                      "minDateTimeISO": "2022-10-21T00:00:00-05:00"
+                  },
+                  "spressure": {
+                      "maxMB": 999.1,
+                      "minMB": 994.7,
+                      "avgMB": 997.8,
+                      "maxIN": 29.5,
+                      "minIN": 29.37,
+                      "avgIN": 29.47,
+                      "maxTimestamp": 1666368000,
+                      "maxDateTimeISO": "2022-10-21T11:00:00-05:00",
+                      "minTimestamp": 1666386000,
+                      "minDateTimeISO": "2022-10-21T16:00:00-05:00"
+                  },
+                  "altimeter": {
+                      "maxMB": 1014.1,
+                      "minMB": 1009.6,
+                      "avgMB": 1012.8,
+                      "maxIN": 29.95,
+                      "minIN": 29.81,
+                      "avgIN": 29.91,
+                      "maxTimestamp": 1666368000,
+                      "maxDateTimeISO": "2022-10-21T11:00:00-05:00",
+                      "minTimestamp": 1666386000,
+                      "minDateTimeISO": "2022-10-21T16:00:00-05:00"
+                  }
+              }
+          ],
+          "profile": {
+              "tz": "America/Chicago",
+              "tzname": "CDT",
+              "tzoffset": -18000,
+              "isDST": true,
+              "elevM": 128,
+              "elevFT": 420
+          }
       }
-    }
   ]
 }
