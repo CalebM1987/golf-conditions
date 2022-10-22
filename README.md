@@ -50,6 +50,10 @@ or if you prefer [ReDoc](https://redocly.github.io/redoc/):
 
 The golf course data is stored in a json file [here](./app/data/All_MN_Courses.json). This data was derived from manually downloading a few json payloads from [MinnesotaGolf.com](https://minnesotagolf.com/fairways), and then using a [script](./app/scripts/crawler.js) to scrape and join data for each region and finally merge all the regions together into one data source.
 
+This does support a quick and dirty dictionary based query via url params. For example, to find golf courses within Minneapolis:
+
+[http://127.0.0.1:8000/golf-courses?City=Minneapolis](http://127.0.0.1:8000/golf-courses?City=Minneapolis)
+
 
 ### front end app
 
