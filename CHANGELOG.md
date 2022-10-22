@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/CalebM1987/golf-conditions/compare/v1.0.1-0...v1.1.0) (2022-10-22)
+
+
+### Features
+
+* **golf-courses:** make all requests async ([ea31b44](https://github.com/CalebM1987/golf-conditions/commit/ea31b448786c958e6e4c5a05fedf79c6bac4b02d))
+
+
+### Bug Fixes
+
+* **aeris:** fixed get_args and improved rating logic ([077a302](https://github.com/CalebM1987/golf-conditions/commit/077a30275e202ece07ab2f2335b2bc1046de6fe8))
+
 ### 1.0.1-0 (2022-10-20)
 
 
