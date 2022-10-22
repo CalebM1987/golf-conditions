@@ -67,7 +67,17 @@ const temp = computed(()=> weatherConditions.value?.temp ?? undefined)
     <q-card-section v-if="conditions && !isLoading">
       <q-card-section>
         <div class="text-subtitle2">
-          <p><span style="font-size: 1.3rem;">{{ Math.round(temp?.avgF ?? 0) }}</span>°F</p>
+          <div class="row">
+            <p><span style="font-size: 1.3rem;">{{ Math.round(temp?.avgF ?? 0) }}</span>°F</p>
+            <div 
+              v-if="weatherConditions!.windSpeed.avgKPH >= 10" 
+              style="font-size: 1.35;"
+              class="q-ml-lg"
+            >
+              <q-icon name="air" />
+              {{ Math.round(weatherConditions!.windSpeed.avgKPH) }}
+            </div>
+          </div>
           <p>{{ weatherConditions?.weather?.phrase ?? 'N/A' }}</p>
         </div>
       </q-card-section>
