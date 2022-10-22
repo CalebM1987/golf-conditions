@@ -53,7 +53,7 @@ weather_fields =  [
         'profile.tz'
     ]
 
-async def get_current_conditions(location: str, **kwargs) -> WeatherConditionsResponse:
+async def get_current_conditions(location: str, fields=weather_fields, **kwargs) -> WeatherConditionsResponse:
     """query the aeris weather api to fetch conditions for a given location
 
     Args:
@@ -62,12 +62,10 @@ async def get_current_conditions(location: str, **kwargs) -> WeatherConditionsRe
     Returns:
         _type_: _description_
     """
-    kwargs['fields']= weather_fields
-
     url = f'{base}/conditions/summary/{location}'
     
     async with httpx.AsyncClient() as client:
-        r = await client.get(url, params=get_args(**kwargs))
+        r = await client.get(url, params=get_args(fields=fields, **kwargs))
         return munchify(r.json())
 
 
@@ -104,7 +102,7 @@ async def get_golf_conditions(location: str, reverse=False) -> RatingResponse:
         _min, _max = 5, 1
         indexNames = RATINGS_REVERSED
     try:
-        resp = await get_current_conditions(location, to='+6hours', fields=weather_fields)
+        resp = await get_current_conditions(location, to='+6hours')
         conditions = resp.response[0]
         period = conditions.periods[0]
 
