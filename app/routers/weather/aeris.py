@@ -14,8 +14,37 @@ aries_env = dotenv_values(dotfile)
 # aries base url
 base = 'https://api.aerisapi.com'
 
+# rating helpers
+RATING_CATEGORIES = ['bad', 'poor', 'good', 'very good', 'excellent']
+RATINGS = dict((i+1, c) for i,c in enumerate(RATING_CATEGORIES))
+RATINGS_REVERSED = dict((i+1, c) for i,c in enumerate(RATING_CATEGORIES[::-1]))
+
+# filters for weather fields
+weather_fields =  [
+    'loc', 
+    'place', 
+    'periods.timestamp',
+    'periods.dateTimeISO',
+    'periods.range', 
+    'periods.precip', 
+    'periods.temp', 
+    'periods.dewpoint',
+    'periods.windSpeed',
+    'periods.weather.phrase',
+    'periods.weather.primary',
+    'profile.tz'
+]
+
 def get_args(f='json', fields: Union[str, List[str]]=None, **kwargs):
-    """pass in extra query string arguments"""
+    """combine aeris client auth params with other query parameters
+
+    Args:
+        f (str, optional): the request format. Defaults to 'json'.
+        fields (Union[str, List[str]], optional): list of fields to filter. Defaults to None.
+
+    Returns:
+        _type_: _description_
+    """
     CLIENT_ID = aries_env.get('AERIS_CLIENT_ID')
     CLIENT_SECRET = aries_env.get('AERIS_CLIENT_SECRET')
     params = dict(
@@ -33,25 +62,6 @@ def get_args(f='json', fields: Union[str, List[str]]=None, **kwargs):
    
     return params
 
-RATING_CATEGORIES = ['bad', 'poor', 'good', 'very good', 'excellent']
-RATINGS = dict((i+1, c) for i,c in enumerate(RATING_CATEGORIES))
-RATINGS_REVERSED = dict((i+1, c) for i,c in enumerate(RATING_CATEGORIES[::-1]))
-
-# filters for weather fields
-weather_fields =  [
-        'loc', 
-        'place', 
-        'periods.timestamp',
-        'periods.dateTimeISO',
-        'periods.range', 
-        'periods.precip', 
-        'periods.temp', 
-        'periods.dewpoint',
-        'periods.windSpeed',
-        'periods.weather.phrase',
-        'periods.weather.primary',
-        'profile.tz'
-    ]
 
 async def get_current_conditions(location: str, fields=weather_fields, **kwargs) -> WeatherConditionsResponse:
     """query the aeris weather api to fetch conditions for a given location
