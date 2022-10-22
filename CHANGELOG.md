@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/CalebM1987/golf-conditions/compare/v1.1.0...v1.2.0) (2022-10-22)
+
+
+### Features
+
+* add limit and use dropdown for format ([de25044](https://github.com/CalebM1987/golf-conditions/commit/de250442cdb86a859df305f9b2ec74182c455f03))
+* **weather-info:** show wind speed when >= 10kph ([7ee9f33](https://github.com/CalebM1987/golf-conditions/commit/7ee9f336b1e1a72bfc997f95e3751a9c7b4f4b20))
+
 ## [1.1.0](https://github.com/CalebM1987/golf-conditions/compare/v1.0.1-0...v1.1.0) (2022-10-22)
 
 
