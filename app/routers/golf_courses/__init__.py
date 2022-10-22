@@ -18,7 +18,7 @@ class GolfCourseParams(GolfCourse, GeoJSONFormatArg):
     pass
 
 @golf.get('/golf-courses', response_model=Union[GeoJSONFeatureCollection[GolfCourse], List[GolfCourse]], tags=['golf-courses'])
-def get_all_courses(request: Request, params: GolfCourseParams = Depends()):
+async def get_all_courses(request: Request, params: GolfCourseParams = Depends()):
     """fetches all golf courses"""
     kwargs = request.query_params
     geojson = kwargs.get('f') == 'geojson'
@@ -26,7 +26,7 @@ def get_all_courses(request: Request, params: GolfCourseParams = Depends()):
     return to_geojson(filtered) if geojson else filtered
 
 @golf.get('/golf-courses/{id}', response_model=GolfCourse, tags=['golf-courses'])
-def get_single_course(id: int = Path(..., title='the Golf Course ID')):
+async def get_single_course(id: int = Path(..., title='the Golf Course ID')):
     """fetches a single golf course"""
     result = [c for c in courses if c.get('id') == id][0]
     return 
